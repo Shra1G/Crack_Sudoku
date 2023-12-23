@@ -1,0 +1,206 @@
+*{box-sizing: border-box;}
+@keyframes parchment__message{
+  0% {
+    transform:translate(-50%,-50%) scaleX(0) ;
+    visibility:hidden;
+    opacity:0;
+  }
+  30%{
+    transform:translate(-50%,-50%) scaleX(1);
+    visibility: visible;
+    opacity:1;
+  }
+  60%{
+    transform:translate(-50%,-50%) scaleX(1);
+    visibility: visible;
+    opacity:1;
+  }
+  100%{
+    transform:translate(-50%,100%) scaleX(1);
+    visibility: hidden;
+    opacity:0;  
+  }
+}
+.sudokuGrid{
+  display:grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto;
+  height:450px;
+  width:450px;
+  border-collapse: collapse;
+  margin:20px;
+  margin-bottom:20px;
+  order:2;
+  outline:3px solid #ff7129;
+  box-shadow: 0 1px 2px rgba(0,0,0,1), 
+  0 2px 4px rgba(0,0,0,1), 
+  0 4px 8px rgba(0,0,0,1), 
+  0 8px 16px rgba(0,0,0,1),
+  0 16px 32px rgba(0,0,0,1),
+  0 32px 64px rgba(0,0,0,1);
+}
+.input__help{
+  color:#ff7129;
+  font-size: 30px !important;
+  position:absolute;
+  top: 10px;
+  right:10px;
+  cursor:pointer;
+}
+.input__helpContent{
+  /* display:none; */
+  position: fixed;
+  background: url('./parchment.png');
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  height:auto;
+  width:auto;
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding:50px;
+  color:black;
+  font-size:20px;
+  font-weight: 600;
+  overflow:hidden;
+  font-family: 'Berkshire Swash', cursive;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 2s ease ,  opacity 2s ease;
+}
+.form{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+ .output .sudokuGrid{
+  order:2;
+}
+.output__back {
+  background:none;
+  order:3;
+}
+.invisible__block{
+  visibility:hidden;
+  order:1;
+} 
+.input__clear,.input__solve,.output__back >div,.invisible__block{
+  margin:20px;  
+  margin-bottom:10px;
+  padding:5px;
+  width:150px;
+  color:white;
+  font-family: ' Pacifico', cursive;
+  font-size:20px;
+  font-weight:600;
+  cursor:pointer;
+  border-radius:6px;
+  box-shadow:0 8px 15px 1px rgba(0,0,0,0.7);  
+}
+.input__clear:active,.input__solve:active,.output__back >div:active{
+  box-shadow:0 2px 10px 0.5px rgba(0,0,0,0.7); 
+}
+.input__clear{
+  border:2px solid #e9631f;
+  background:#e6611e;
+  text-shadow: 5px 3px 3px #923d13;
+  font-size:30px;
+  order:1;
+}
+.input__solve{
+  border:2px solid #b68c0f;/*rgb(6, 99, 34);*/
+  background:#d6a40e;  /*rgb(15, 129, 49);*/
+  text-shadow: 5px 3px 3px #664f09;/*rgb(10, 82, 31);*/
+  font-size:30px;
+  order:3;  
+}
+.output__back >div{
+  border:2px solid #e9631f;
+  background:#e6611e;
+  text-shadow: 5px 3px 3px #923d13;
+  font-size:30px;
+}
+.output__back{
+  text-decoration:none;
+}
+.output__message{
+  position: fixed;
+  top:50%;
+  left:50%;
+  height:auto;
+  width:auto ;  
+  padding:100px;
+  background: url('./parchment2.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  color:black;
+  font-size:25px;
+  font-weight: 600;
+  font-family: 'Berkshire Swash', cursive;
+  visibility: hidden;
+  overflow:hidden;
+  animation:parchment__message 3s ease;
+}
+.cell{
+  width:50px;
+  height:50px;
+  margin:0;
+  background:#393b33;
+  outline:#883000;
+  border:1px solid black;
+  border-collapse: collapse;
+  color:white ;
+  font-size:25px;
+  font-weight:800;
+  font-family: 'Kaushan Script', cursive;
+  text-align:center;
+}
+.cell:focus{
+  background:#292b25;
+  color:transparent;
+  text-shadow: 0 0 0 white;
+}
+@media screen and (max-width:920px){
+  .form{
+    /* display:flex; */
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+  }
+  .sudokuGrid{
+    order:1;
+  }
+  .invisible__block{
+    order:3;
+  }
+  .input__solve{
+    order:2;
+  }
+  .input__clear{
+    order:3;
+  }
+}
+@media screen and (max-width:480px){
+  .form{
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+  }
+  .sudokuGrid{
+    height:360px;
+    width:360px;
+    order:1;
+  }
+  .cell{
+    width:40px;
+    height:40px;
+  }
+  .input__helpContent{
+    width:80%;
+  }
+  .input__helpContent{
+    top:40%;
+  }
+}

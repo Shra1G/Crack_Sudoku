@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Kaushan+Script&family=Aladin&family=Berkshire+Swash&family=Caveat+Brush&family=Niconne&family=Merienda+One&family=Pacifico&display=swap');
+*{
+  background:#2e2f29; 
+}
+
+.App {
+  text-align: center;
+  position:relative;
+  padding-bottom:30px;
+}
+h1{
+  font-family: 'Merienda One', cursive;
+  color:#ff7129;
+  text-shadow:2px 2px  2px black;
+}
+.copyright{
+  color:white;
+  background: none;
+  font-family: 'Niconne', cursive;
+  font-size:18px;
+  position:absolute;
+  bottom:0;
+  right:10px;
+  /* transform: translate(-50%,-50% ); */
+}
+
+@media screen and (max-width:480px){
+    .App{
+      padding-bottom: 70px;
+    }
+    .copyright{
+      bottom:0px;
+      left:50%;
+      transform: translate(-50%,-50% );
+    }
+}
